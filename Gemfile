@@ -6,4 +6,5 @@ gem 'rails-api'
 
 gem 'spring', :group => :development
 
-gem 'sq'
+# PostgreSQL
+gem 'pg'

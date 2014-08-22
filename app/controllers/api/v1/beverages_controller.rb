@@ -1,6 +1,6 @@
 module Api
   module V1
-    class BeveragesController < ApplicationController
+    class BeveragesController < Api::ApiController
       # GET /beverages
       # GET /beverages.json
       def index

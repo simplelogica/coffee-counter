@@ -9,6 +9,8 @@ gem 'pg'
 
 gem 'enumerize'
 
+gem 'd3-rails'
+
 group :development, :test do
   gem 'spring'
   gem 'sqlite3'

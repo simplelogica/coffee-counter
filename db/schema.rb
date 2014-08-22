@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821104241) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20140822163446) do
 
   create_table "api_keys", force: true do |t|
     t.string   "token"
@@ -23,11 +20,13 @@ ActiveRecord::Schema.define(version: 20140821104241) do
     t.integer  "user_id"
   end
 
-  create_table "coffees", force: true do |t|
-    t.datetime "date"
+  create_table "beverages", force: true do |t|
+    t.string   "kind"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "beverages", ["kind"], name: "index_beverages_on_kind"
 
   create_table "users", force: true do |t|
     t.string   "name"

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root "application#index"
+  root "beverages#index"
 
   namespace :api, defaults: {format: :json} do
     # Version num1

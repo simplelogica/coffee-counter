@@ -29,6 +29,8 @@ GEM
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
     builder (3.2.2)
+    d3-rails (3.4.4)
+      railties (>= 3.1)
     enumerize (0.8.0)
       activesupport (>= 3.2)
     erubis (2.7.0)
@@ -89,6 +91,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  d3-rails
   enumerize
   pg
   rails (= 4.1.4)

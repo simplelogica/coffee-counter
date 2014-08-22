@@ -4,7 +4,12 @@ gem 'rails', '4.1.4'
 
 gem 'rails-api'
 
-gem 'spring', :group => :development
-
 # PostgreSQL
 gem 'pg'
+
+gem 'enumerize'
+
+group :development, :test do
+  gem 'spring'
+  gem 'sqlite3'
+end

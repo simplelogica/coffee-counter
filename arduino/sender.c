@@ -1,9 +1,8 @@
-// Libreria para transmitir la señal
 #include <VirtualWire.h>
 
 char *signal;             // Codigo a transmitir
-int coffeeButton = 5;     // Pin del botón de cafés
-int teaButton = 6;        // Pin del botón de tés
+int coffeeButton = 10;    // Pin del botón de cafés
+int teaButton = 11;       // Pin del botón de tés
 int flagCoffeeButton = 0; // Flag para saber si hemos pulsado el botón de cafés
 int flagTeaButton = 0;    // Flag para saber si hemos pulsado el botón de tés
 
@@ -18,12 +17,9 @@ void setup() {
   // Marcamos el pin del LED como salida para tenerlo de referencia
   pinMode(13, OUTPUT);
 
-  // Configuramos el pin 1 como salida de datos
+  // Inicializamos el emisor de señal
   vw_set_ptt_inverted(true);
-  vw_set_tx_pin(1);
-
-  // Velocidad de transmision de la señal
-  vw_setup(4000);
+  vw_setup(2000);
 }
 
 void loop() {
@@ -33,7 +29,8 @@ void loop() {
   // Leemos el botón de tés
   flagTeaButton = digitalRead(teaButton);
 
-  if(flagCoffeeButton == 1) {
+  if(flagCoffeeButton == 0) {
+    Serial.print("Cafe");
     Serial.println(flagCoffeeButton); 
 
     // Marcamos la variable a "1" para enviar la señal de café
@@ -51,7 +48,8 @@ void loop() {
     digitalWrite(13,0);
   }
 
-  if(flagTeaButton == 1) {
+  if(flagTeaButton == 0) {
+    Serial.print("Te");
     Serial.println(flagTeaButton); 
 
     // Marcamos la variable a "0" para enviar la señal de té

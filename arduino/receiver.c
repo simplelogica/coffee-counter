@@ -1,18 +1,15 @@
-// Libreria para transmitir la señal
 #include <VirtualWire.h>
 
-int dataPin = 0;  // Pin donde hemos conectado el receptor de la señal del otro arduino
-
 void setup() {
+  // Inicializamos el monitor serie  
+  Serial.begin(9600);
+
   // Marcamos el pin del LED como salida para tenerlo de referencia
   pinMode(13, OUTPUT);
 
-  // Configuramos el pin 0 como salida de datos
+  // Inicializamos el receptor de señal
   vw_set_ptt_inverted(true); 
-  vw_set_rx_pin(dataPin);
-
-  // Velocidad de transmision de la señal
-  vw_setup(4000); 
+  vw_setup(2000); 
   vw_rx_start();
 }
     
@@ -23,6 +20,9 @@ void loop() {
   // Si recibimos señal ejecutamos las acciones que deseemos
   if (vw_get_message(buf, &buflen)) 
   {
+
+    Serial.print("Recibimos un ");
+    Serial.println(buf[0]);
     // Si recibimos un 1 es que hemos pulsado el botón de café
     if(buf[0] == '1') {
       // "Endendemos" el LED para mostrar que la señal se ha enviado

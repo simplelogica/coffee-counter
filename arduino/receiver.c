@@ -23,7 +23,19 @@ void loop() {
   // Si recibimos señal ejecutamos las acciones que deseemos
   if (vw_get_message(buf, &buflen)) 
   {
+    // Si recibimos un 1 es que hemos pulsado el botón de café
     if(buf[0] == '1') {
+      // "Endendemos" el LED para mostrar que la señal se ha enviado
+      digitalWrite(13,1);
+      // Esperamos un segundo
+      delay(1000);
+      // Apagamos el LED
+      digitalWrite(13,0);
+    }
+
+
+    // Si recibimos un 0 es que hemos pulsado el botón de té
+    if(buf[0] == '0') {
       // "Endendemos" el LED para mostrar que la señal se ha enviado
       digitalWrite(13,1);
       // Esperamos un segundo

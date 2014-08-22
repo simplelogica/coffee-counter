@@ -15,3 +15,6 @@
 /log/*.log
 /tmp
 /.rvmrc
+
+# Ignore config files
+/config/database.yml
